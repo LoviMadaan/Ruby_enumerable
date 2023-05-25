@@ -1,18 +1,18 @@
 module MyEnumerable
-    def initialize(*args)
-        @list = [*args]
-    end
+  def initialize(*args)
+    @list = [*args]
+  end
 
-    def all?
-      @list.each do |element|
-        return false unless yield (element)
-      end
-      true
-    end
-
-    def any?
+  def all?
     @list.each do |element|
-      return true if yield (element)
+      return false unless yield element
+    end
+    true
+  end
+
+  def any?
+    @list.each do |element|
+      return true if yield element
     end
     false
   end
@@ -20,7 +20,7 @@ module MyEnumerable
   def filter
     array = []
     @list.each do |element|
-      array << element if yield (element)
+      array << element if yield element
     end
     array
   end
