@@ -10,3 +10,11 @@ puts(list.all? { |element| element < 5 })
 # true
 puts(list.all? { |element| element > 5 })
 # false
+
+puts (list.any? {|e| e == 2})
+# => true
+puts (list.any? {|e| e == 5})
+# => false
+
+puts (list.filter {|e| e.even?})
+# => [2, 4]
